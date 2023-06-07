@@ -1,27 +1,34 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import HomeView from '../views/HomeView.vue';
+import Vue from "vue";
+import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
 
-const routes = [
+export const constantRoutes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView,
+    path: "/login",
+    component: () => import("@/views/login/index"),
+    hidden: true,
   },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue'),
-  },
+  // {
+  //   path: '/register',
+  //   component: () => import('@/views/register/index'),
+  //   hidden: true,
+  // },
+  // {
+  //   path: '/401',
+  //   name: '401',
+  //   component: () => import('@/views/401'),
+  //   hidden: true,
+  // },
+  // {
+  //   path: '/404',
+  //   name: '404',
+  //   component: () => import('@/views/404'),
+  //   hidden: true,
+  // },
 ];
-
 const router = new VueRouter({
-  routes,
+  routes: constantRoutes,
 });
 
 export default router;
